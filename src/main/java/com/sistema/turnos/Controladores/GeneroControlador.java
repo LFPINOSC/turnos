@@ -46,7 +46,7 @@ public class GeneroControlador {
         generoServicio.eliminarGenero(id);
         return ResponseEntity.ok().body("Género eliminado exitosamente");
     }
-    @PutMapping("/{id]")
+    @PutMapping("/{id}")
     public ResponseEntity<?> actualizarGenero(@PathVariable Long id, @RequestBody Genero generoActualizado){
         Genero genero = generoServicio.actualizarGenero(id, generoActualizado);
         if (genero != null) {

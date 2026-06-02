@@ -1,7 +1,8 @@
 package com.sistema.turnos.Entidades;
 
-import java.sql.Date;
-import java.sql.Time;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,8 +12,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Max;
@@ -55,13 +54,13 @@ public class Consulta {
     private String motivo;
 
     @NotNull(message = "La fecha es obligatoria")
-    @Temporal(TemporalType.DATE)
+    
     @Column(nullable = false)
-    private Date fecha;
+    private LocalDate fecha;
 
     @NotNull(message = "La hora es obligatoria")
     @Column(nullable = false)
-    private Time hora;
+    private LocalDateTime hora;
 
     @Min(value = 0, message = "Estado inválido")
     @Max(value = 2, message = "Estado inválido")
@@ -72,7 +71,6 @@ public class Consulta {
     @Digits(integer = 8, fraction = 2,
             message = "Formato de costo inválido")
     @Column(nullable = false)
-    private double costo;
+    private BigDecimal costo;
     
-
 }

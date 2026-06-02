@@ -2,6 +2,8 @@ package com.sistema.turnos.Servicios;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -67,11 +69,11 @@ public class ConsultaServicio {
         return null;
     }
 
-    public Optional<List<Consulta>> buscarPorFecha(Date fecha) {
+    public Optional<List<Consulta>> buscarPorFecha(LocalDate fecha) {
         return consultaRepositorio.findByFecha(fecha);
     }
 
-    public Optional<Consulta> buscarPorFechaYHora(Date fecha, Time hora) {
+    public Optional<Consulta> buscarPorFechaYHora(LocalDate fecha, LocalDateTime hora) {
         return consultaRepositorio.findByFechaAndHora(fecha, hora);
     }
 }
